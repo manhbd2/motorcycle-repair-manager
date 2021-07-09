@@ -1,0 +1,61 @@
+.report-border {
+  background: #FFFFFF;
+  border: 1px solid #E3E3E3;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  border-radius: 4px;
+}
+
+.report-today-component {
+  .report-title {
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    padding: 20px;
+  }
+
+.content {
+  padding: 0 16px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 250px;
+
+  .cnt-item {
+    padding: 26px 15px 32px 15px;
+    width: calc(50% - 10px);
+    margin: 5px;
+    display: flex;
+    // background: #16cc9f;
+    border-radius: 10px;
+
+    .item-l {
+      display: flex;
+      margin: auto;
+      width: 35px;
+      justify-content: center;
+    }
+
+    .item-r {
+      width: calc(100% - 35px);
+      margin-left: 10px;
+
+      .text-ellipsis {
+        font-weight: 500;
+        font-size: 22px;
+      }
+
+      .txt {
+        font-size: 14px;
+        font-weight: normal !important;
+      }
+    }
+  }
+
+  .div-style-loading {
+    width: calc(50% - 10px) !important;
+    height: 107px;
+    margin: 5px;
+    display: flex;
+  }
+}
+}

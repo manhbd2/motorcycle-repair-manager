@@ -1,0 +1,52 @@
+.staff-detail-info {
+    margin: 0 18px 20px 18px;
+    .card{
+        padding: 15px;
+        background: #ffffff;
+        border: 1px solid #d3d3d3;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding-bottom: 0px;
+        .title-content {
+            justify-content: space-between ;
+            border-bottom: 1px solid #e3e3e3;
+            margin-left: -16px;
+            margin-right: -16px;
+            padding-left: 16px;
+            padding-bottom: 5px;
+            .title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #212b35;
+            }
+            .action-diff{
+                margin-right: 15px;
+                cursor: pointer;
+                .text {
+                    margin-right: 5px;
+                }
+                .btn-action-diff{
+                    background: white;
+                    border: none;
+                    color: black;
+                    border-top: none;
+                    box-shadow: none;
+                    &:hover{
+                        border: none;
+                    }
+                    &:focus{
+                        border: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+        .content {
+            padding: 1rem;
+            .item{
+                margin: 10px 0px 10px 0px;
+            }
+        }
+    }
+    
+}
