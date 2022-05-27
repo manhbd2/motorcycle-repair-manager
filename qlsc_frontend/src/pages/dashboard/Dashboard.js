@@ -30,10 +30,10 @@ import ServiceUpdate from "../service/components/ServiceUpdate/ServiceUpdate";
 import ServiceCreate from "../service/components/ServiceCreate/ServiceCreate";
 import ServiceList from "../service/components/ServiceList/ServiceList";
 import Home from "../home/Home";
-import FeedBack from "../../components/topBar/feedback/FeedBack";
+
 function Dashboard(props) {
-  const { auth } = props;
   const [showMenu, setShowMenu] = useState(false)
+
   return (
     <div
       className={showMenu ? "content-dashboard-active" : "content-dashboard"}
@@ -132,12 +132,10 @@ function Dashboard(props) {
 const mapStateToProps = (state) => {
   const {
     globalUI: { showMenuTopBar },
-    auth,
   } = state;
   const showMenu = showMenuTopBar;
   return {
     showMenu,
-    auth,
   };
 };
 export default withRouter(connect(mapStateToProps, null)(Dashboard));

@@ -1,7 +1,7 @@
 {
-  "name": "my-ekko",
+  "name": "qlsc_frontend",
   "version": "0.0.4",
-  "description": "my-ekko",
+  "description": "qlsc_frontend",
   "main": "''",
   "engines": {
     "node": "10.12.0"
@@ -11,13 +11,13 @@
     "webpack": "webpack --config ./webpack.config.production.js",
     "sass": "node-sass src/styles/index.scss build/index.css --output-style compressed",
     "build": "npm run clean && npm run sass && npm run webpack",
+    "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build:prod": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js --config ./webpack.config.production.js",
     "lint": "eslint src config",
-    "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "test": "export NODE_ENV=test && jest",
     "start": "webpack-cli serve --mode development --config ./webpack.config.js"
   },
-  "author": "MyEkko",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.3",
