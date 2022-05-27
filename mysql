@@ -1,0 +1,84 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `maintenance_cards_filter_count`(
+	IN _query nvarchar(255),
+	IN _pay_status_ids nvarchar(255),
+    IN _work_status_ids nvarchar(255),
+	IN _from date,
+	IN _to date,
+    In _tenant_id long,
+    In _repairman_id long
+)
+BEGIN
+	set @query = 'select count(id) Count from maintenance_cards';
+    set @where = concat(' where 1=1 and tenant_id = ',_tenant_id);
+    
+    if _work_status_ids is not null and _work_status_ids <> '' then
+		set @where = concat(@where, ' and work_status in (', _work_status_ids, ')');
+    end if;
+    
+    if _pay_status_ids is not null and _pay_status_ids <> '' then
+		set @where = concat(@where, ' and pay_status in (', _pay_status_ids, ')');
+    end if;
+    
+	if _repairman_id is not null and _repairman_id <> 0 then
+		set @where = concat(@where, ' and repairman_id = (', _repairman_id, ')');
+    end if;
+    
+    if _from is not null and _to is not null then
+		set @where = concat(@where, ' and return_date between ', _from, ' and ', _to, '');
+    end if;
+    
+    if _query is not null and _query <> '' then
+		set @where = concat(@where, ' and code like ''%', _query, '%'' or customer_name like ''%', _query, '%''');
+    end if;
+    
+    set @query = concat(@query, @where);
+    
+    prepare stmt from @query;
+    execute stmt;
+    DEALLOCATE PREPARE stmt;
+END
+
+-------------------------
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `maintenance_cards_filter`(
+	IN _query nvarchar(255),
+	IN _pay_status_ids nvarchar(255),
+    IN _work_status_ids nvarchar(255),
+	IN _from datetime,
+	IN _to datetime,
+	IN _limit int,
+	IN _offset int,
+    In _tenant_id long,
+    In _repairman_id long
+)
+BEGIN
+	set @query = 'select * from maintenance_cards';
+    set @where = concat(' where 1=1');
+    set @order = concat(' and tenant_id = ', _tenant_id,' order by id desc limit ', _offset, ', ', _limit, ';');
+    
+    if _work_status_ids is not null and _work_status_ids <> '' then
+		set @where = concat(@where, ' and work_status in (', _work_status_ids, ')');
+    end if;
+    
+    if _pay_status_ids is not null and _pay_status_ids <> '' then
+		set @where = concat(@where, ' and pay_status in (', _pay_status_ids, ')');
+    end if;
+    
+	if _repairman_id is not null and _repairman_id <> 0 then
+		set @where = concat(@where, ' and repairman_id = (', _repairman_id, ')');
+    end if;
+    
+   if _from is not null and _to is not null then
+		set @where = concat(@where, ' and return_date between ''', _from, ''' and ''', _to, '''');
+    end if;
+    
+    if _query is not null and _query <> '' then
+		set @where = concat(@where, ' and code like ''%', _query, '%'' or customer_name like ''%', _query, '%''');
+    end if;
+    
+    set @query = concat(@query, @where, @order);
+    
+    prepare stmt from @query;
+    execute stmt;
+    DEALLOCATE PREPARE stmt;
+END
