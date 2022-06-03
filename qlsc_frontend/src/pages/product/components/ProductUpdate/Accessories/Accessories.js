@@ -289,7 +289,7 @@ function Accessories(props) {
                     <div className="div-send-img-file" key={index}>
                       <div className="div_send_img">
                         <button type="button" className="remove_image">
-                          <span onClick={() => removeImage(index)}>&times;</span>
+                          <div className="d-flex-center" onClick={() => removeImage(index)}>&times;</div>
                         </button>
                         <img
                           className="img-file"

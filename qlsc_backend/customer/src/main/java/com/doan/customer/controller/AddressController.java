@@ -52,9 +52,9 @@ public class AddressController {
 
     @PostMapping("insert_by_csv")
     public Map insert() {
-        String provinces = "E:\\DoAn2\\DoAnTotNgiep\\qlsc_backend\\data\\provinces.csv";
-        String wards = "E:\\DoAn2\\DoAnTotNgiep\\qlsc_backend\\data\\wards.csv";
-        String districts = "E:\\DoAn2\\DoAnTotNgiep\\qlsc_backend\\data\\districts.csv";
+        String provinces = "D:\\DoAnTotNgiep\\data\\provinces.csv";
+        String wards = "D:\\DoAnTotNgiep\\data\\wards.csv";
+        String districts = "D:\\DoAnTotNgiep\\data\\districts.csv";
         try {
             List<String> dataProvinces = processFileCsv(provinces);
             List<String> dataDistricts = processFileCsv(districts);

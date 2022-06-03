@@ -116,7 +116,7 @@ function MainReport(props) {
             {/* body */}
             <div className="report-table-body">
               {dataMain &&
-                dataMain.length &&
+                dataMain.length ?
                 dataMain.map((item, index) => {
                   return (
                     <div className="tbl-item d-flex" key={index}>
@@ -153,7 +153,7 @@ function MainReport(props) {
                       </div>
                     </div>
                   );
-                })}
+                }) : null}
             </div>
             {/* body */}
           </div>

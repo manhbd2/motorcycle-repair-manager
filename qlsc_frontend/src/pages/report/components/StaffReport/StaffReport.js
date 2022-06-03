@@ -90,7 +90,7 @@ function StaffReport(props) {
             {/* body */}
             <div className="report-table-body">
               {dataStaff &&
-                dataStaff.length &&
+                dataStaff.length ?
                 dataStaff.map((item, index) => {
                   return (
                     <div className="tbl-item d-flex" key={index}>
@@ -127,7 +127,7 @@ function StaffReport(props) {
                       </div>
                     </div>
                   );
-                })}
+                }) : null}
             </div>
             {/* body */}
           </div>

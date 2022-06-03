@@ -109,7 +109,7 @@ function AccessoriesReport(props) {
             {/* body */}
             <div className="report-table-body">
               {accessories &&
-                accessories.length &&
+                accessories.length ?
                 accessories.map((item, index) => {
                   return (
                     <div className="tbl-item d-flex" key={index}>
@@ -157,7 +157,7 @@ function AccessoriesReport(props) {
                       </div>
                     </div>
                   );
-                })}
+                }) : null}
             </div>
             {/* body */}
           </div>

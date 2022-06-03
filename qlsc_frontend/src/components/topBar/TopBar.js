@@ -394,7 +394,7 @@ function TopBar(props) {
                   }}
                 >
                   {messages &&
-                    messages.length &&
+                    messages.length ?
                     messages.map((message) => {
                       return (
                         <div
@@ -436,7 +436,7 @@ function TopBar(props) {
                           </div>
                         </div>
                       );
-                    })}
+                    }) : null}
                 </div>
               </div>
             </div>

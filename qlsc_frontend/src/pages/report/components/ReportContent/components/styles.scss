@@ -6,6 +6,23 @@
     border-radius: 4px;
 }
 
+
+.content_body__bottom_empty {
+    display: flex;
+    margin: auto;
+
+    .number_empty {
+        margin: 31px auto;
+
+        .txt_empty {
+            text-align: center;
+            font-size: 14px;
+            color: #BDBDBD;
+            margin-top: 10px;
+        }
+    }
+}
+
 .report-top-staff-component {
 
     .report-title {
@@ -25,22 +42,6 @@
                 >div {
                     margin-bottom: 20px !important;
                 }
-            }
-        }
-    }
-
-    .content_body__bottom_empty {
-        display: flex;
-        margin: auto;
-
-        .number_empty {
-            margin: 31px auto;
-
-            .txt_empty {
-                text-align: center;
-                font-size: 14px;
-                color: #BDBDBD;
-                margin-top: 10px;
             }
         }
     }
